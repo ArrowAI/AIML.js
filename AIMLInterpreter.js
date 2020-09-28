@@ -57,6 +57,37 @@ var AIMLInterpreter = function(botAttributesParam){
         readAIMLFile(fileArray[fileIndex]);
     };
 
+    this.loadAIMLStringIntoArray = function(aimlStringsArray){
+        isAIMLFileLoadingStarted = true;
+        var stringIndex = 0;
+        var readAIMLString = function(aimlString){
+            stringIndex++;
+
+            aimlString = aimlString.replace(/>\r*\n+\s*</gi,'><');
+
+            new DomJS().parse(aimlString, function(err, dom) {
+                var topCategories, topics;
+                if (err) {
+                    //            return cb(err);
+                }
+                if (dom.name === !'aiml') {
+                    //            return cb('Unsupported file');
+                }
+                domArray[domIndex] = dom;
+                domIndex++;
+                if(stringIndex < aimlStringsArray.length){
+                    readAIMLString(aimlStringsArray[stringIndex]);
+                }
+                else{
+                    console.log('AIML String is loaded!');
+                    isAIMLFileLoaded = true;
+                }
+            });
+            
+        }
+        readAIMLString(aimlStringsArray[stringIndex]);
+    };
+
     this.findAnswerInLoadedAIMLFiles = function(clientInput, cb){
         //check if all AIML files have been loaded. If not, call this method again after a delay
         if(isAIMLFileLoaded){
