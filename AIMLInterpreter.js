@@ -475,6 +475,11 @@ var checkIfMessageMatchesPattern = function(userInput, patternText){
 
             return true;
         }
+        else if(regexPattern.indexOf('[A-Z|0-9|\\s]*[A-Z|0-9|-]*[A-Z|0-9]*[!|.|?|\\s]*')){
+            var information = getWildCardValue(userInput, patternText);
+
+            return true;
+        }
     }
     else{
         return false;
