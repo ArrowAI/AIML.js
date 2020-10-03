@@ -88,17 +88,28 @@ var AIMLInterpreter = function(botAttributesParam){
         readAIMLString(aimlStringsArray[stringIndex]);
     };
 
-    this.findAnswerInLoadedAIMLFiles = function(clientInput, cb){
+    this.findAnswerInLoadedAIMLFiles = function(clientInput, lang, cb){
         //check if all AIML files have been loaded. If not, call this method again after a delay
         if(isAIMLFileLoaded){
             wildCardArray = [];
             lastWildCardValue = '';
             var result = '';
-            for(var i = 0; i < domArray.length; i++){
-                cleanDom(domArray[i].children);
-                result = findCorrectCategory(clientInput, domArray[i].children);
-                if(result){
-                    break;
+            if(lang == 'en'){
+                for(var i = 0; i < domArray.length; i++){
+                    cleanDom(domArray[0].children);
+                    result = findCorrectCategory(clientInput, domArray[0].children);
+                    if(result){
+                        break;
+                    }
+                }
+            }
+            else{
+                for(var i = 0; i < domArray.length; i++){
+                    cleanDom(domArray[1].children);
+                    result = findCorrectCategory(clientInput, domArray[1].children);
+                    if(result){
+                        break;
+                    }
                 }
             }
 
