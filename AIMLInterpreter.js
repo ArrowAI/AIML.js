@@ -93,12 +93,13 @@ var AIMLInterpreter = function(botAttributesParam){
         if(isAIMLFileLoaded){
             wildCardArray = [];
             lastWildCardValue = '';
-            var result = '';
+            var englishResult = '';
+            var hindiResult = '';
             if(lang == 'en'){
                 for(var i = 0; i < domArray.length; i++){
                     cleanDom(domArray[0].children);
-                    result = findCorrectCategory(clientInput, domArray[0].children);
-                    if(result){
+                    englishResult = findCorrectCategory(clientInput, domArray[0].children);
+                    if(englishResult){
                         break;
                     }
                 }
@@ -106,18 +107,27 @@ var AIMLInterpreter = function(botAttributesParam){
             else{
                 for(var i = 0; i < domArray.length; i++){
                     cleanDom(domArray[1].children);
-                    result = findCorrectCategory(clientInput, domArray[1].children);
-                    if(result){
+                    hindiResult = findCorrectCategory(clientInput, domArray[1].children);
+                    if(hindiResult){
                         break;
                     }
                 }
             }
-
-            if(result){
-                result = cleanStringFormatCharacters(result);
-                previousAnswer = result;
+            if(lang == 'en'){
+                if(englishResult){
+                    englishResult = cleanStringFormatCharacters(englishResult);
+                    previousAnswer = englishResult;
+                }
+                cb(englishResult, wildCardArray, clientInput);
             }
-            cb(result, wildCardArray, clientInput);
+            else{
+                if(hindiResult){
+                    hindiResult = cleanStringFormatCharacters(hindiResult);
+                    previousAnswer = hindiResult;
+                }
+                cb(hindiResult, wildCardArray, clientInput);
+            }
+            
         }
         else{
             var findAnswerInLoadedAIMLFilesWrapper = function(clientInput, cb){
