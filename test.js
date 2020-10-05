@@ -18,68 +18,68 @@ var caseCallback = function(answer, wildCardArray, input){
 
 
 // Test bot attributes
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your name?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your name?', 'en', callback);
 
 // Test setting and getting variable values
-aimlInterpreter.findAnswerInLoadedAIMLFiles('My name is Ben.', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is my name?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('My name is Ben.', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What is my name?', 'en', callback);
 
 // Test srai tag
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Who are you?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Who are you?', 'en', callback);
 
 // Test random tag
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Give me a letter.', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test srai in random.', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test wildcard What is my name?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test multiple beautiful wildcards you are', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Give me a letter.', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test srai in random.', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test wildcard What is my name?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test multiple beautiful wildcards you are', 'en', callback);
 
 // Test sr tag
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test sr tag What is my name?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test sr in random What is my name?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test sr tag What is my name?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test sr in random What is my name?', 'en', callback);
 
 // Test star tag
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test the star tag repeat what I said', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test the star tag repeat what I said', 'en', callback);
 
 // Test that tag
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test the that tag', callback)
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test that-tag. match',callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test that-tag. dont match', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test the that tag', 'en', callback)
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test that-tag. match', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test that-tag. dont match', 'en', callback);
 
 // Test condition tag
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your feeling today?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('How are you feeling today?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Tell me about your feelings', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel crumpy", callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your feeling today?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel happy", callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('How are you feeling today?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your feeling today?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Tell me about your feelings', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel sad", callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('How are you feeling today?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your feeling today?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Tell me about your feelings', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your feeling today?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('How are you feeling today?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Tell me about your feelings', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel crumpy", 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your feeling today?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel happy", 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('How are you feeling today?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your feeling today?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Tell me about your feelings', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel sad", 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('How are you feeling today?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your feeling today?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Tell me about your feelings', 'en', callback);
 
 // Test wildcards
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Explain HANA', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Explain HANA', 'en', callback);
 
 //Test Think tag
-aimlInterpreter.findAnswerInLoadedAIMLFiles('I am 123', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('How old am I?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What do you know about me?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('I am 123', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('How old am I?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What do you know about me?', 'en', callback);
 
 //Test condition and srai
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test condition and srai', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel happy", callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test condition and srai', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel crumpy", callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test condition and srai', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test condition and srai', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel happy", 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test condition and srai', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles("You feel crumpy", 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test condition and srai', 'en', callback);
 
 // Test finding nothing
-aimlInterpreter.findAnswerInLoadedAIMLFiles('Test the wildcard pattern!', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('Test the wildcard pattern!', 'en', callback);
 
 // Case insensitive testing
-aimlInterpreter.findAnswerInLoadedAIMLFiles('You feel BAD', caseCallback.bind('I feel BAD!'));
-aimlInterpreter.findAnswerInLoadedAIMLFiles('You feel good', caseCallback.bind('I feel good!'));
-aimlInterpreter.findAnswerInLoadedAIMLFiles('You feel hAPPy', caseCallback.bind('I feel HAPPy!')); // INTENTIONAL ERROR CHECKING
-aimlInterpreter.findAnswerInLoadedAIMLFiles('You feel FINEeeeee', caseCallback.bind('I feel FINEEEEEE!')); // INTENTIONAL ERROR CHECKING
+aimlInterpreter.findAnswerInLoadedAIMLFiles('You feel BAD', 'en', caseCallback.bind('I feel BAD!'));
+aimlInterpreter.findAnswerInLoadedAIMLFiles('You feel good', 'en', caseCallback.bind('I feel good!'));
+aimlInterpreter.findAnswerInLoadedAIMLFiles('You feel hAPPy', 'en', caseCallback.bind('I feel HAPPy!')); // INTENTIONAL ERROR CHECKING
+aimlInterpreter.findAnswerInLoadedAIMLFiles('You feel FINEeeeee', 'en', caseCallback.bind('I feel FINEEEEEE!')); // INTENTIONAL ERROR CHECKING

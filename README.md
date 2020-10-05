@@ -17,7 +17,7 @@ With <i>new AIMLInterpreter(botAttributes)</i> one can create a new interpreter 
 can contain attributes of the bot one wants to use in AIML files, e.g. ({name: "Bot", age:"42"}).<br/>
 This object has a function called <i>loadAIMLFilesIntoArray(fileArray)</i> which receives an array of AIML files. 
 This function loads the AIML file into memory.<br/>
-Furthermore, the object has a function called <i>findAnswerInLoadedAIMLFiles(clientInput, cb)</i> which receives 
+Furthermore, the object has a function called <i>findAnswerInLoadedAIMLFiles(clientInput, lang, cb)</i> which receives 
 a message and a callback. The callback is called when an answer was found. 
 The callback of <i>findAnswerInLoadedAIMLFiles</i> should look like this: <i>callback(result, wildCardArray, input)</i>.
 <i>Result</i> is the answer from the AIML file and <i>wildCardArray</i> stores the values of all wildcardInputs passed previously from the client. The original input which triggered the answer is given back via <i>input</i>.	
@@ -32,9 +32,9 @@ var callback = function(answer, wildCardArray, input){
     console.log(answer + ' | ' + wildCardArray + ' | ' + input);
 };
 
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your name?', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('My name is Ben.', callback);
-aimlInterpreter.findAnswerInLoadedAIMLFiles('What is my name?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your name?', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('My name is Ben.', 'en', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('What is my name?', 'en', callback);
 </code></pre><br/>
 <b>Supported AIML tags:</b><pre>
 &lt;bot name="<i>NAME</i>"/>
