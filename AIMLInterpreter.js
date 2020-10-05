@@ -88,7 +88,7 @@ var AIMLInterpreter = function(botAttributesParam){
         readAIMLString(aimlStringsArray[stringIndex]);
     };
 
-    this.findAnswerInLoadedAIMLFiles = function(clientInput, lang, cb){
+    this.findAnswerInLoadedAIMLFilesWithLang = function(clientInput, lang, cb){
         //check if all AIML files have been loaded. If not, call this method again after a delay
         if(isAIMLFileLoaded){
             wildCardArray = [];
@@ -110,6 +110,37 @@ var AIMLInterpreter = function(botAttributesParam){
                     if(result){
                         break;
                     }
+                }
+            }
+
+            if(result){
+                result = cleanStringFormatCharacters(result);
+                previousAnswer = result;
+            }
+            cb(result, wildCardArray, clientInput);
+        }
+        else{
+            var findAnswerInLoadedAIMLFilesWrapper = function(clientInput, cb){
+                return function(){
+                    self.findAnswerInLoadedAIMLFilesWithLang(clientInput, lang, cb);
+                };
+            };
+
+            setTimeout(findAnswerInLoadedAIMLFilesWrapper(clientInput, cb), 1000);
+        }
+    };
+
+    this.findAnswerInLoadedAIMLFiles = function(clientInput, cb){
+        //check if all AIML files have been loaded. If not, call this method again after a delay
+        if(isAIMLFileLoaded){
+            wildCardArray = [];
+            lastWildCardValue = '';
+            var result = '';
+            for(var i = 0; i < domArray.length; i++){
+                cleanDom(domArray[i].children);
+                result = findCorrectCategory(clientInput, domArray[i].children);
+                if(result){
+                    break;
                 }
             }
 
